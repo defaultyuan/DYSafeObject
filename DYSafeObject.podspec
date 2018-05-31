@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DYSafeObject'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = '防止 字典value为nil、数组越界、<null>、NSNull对象导致的Crash.'
   s.homepage         = 'https://github.com/DefaultYuan/DYSafeObject'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
