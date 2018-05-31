@@ -1,0 +1,6 @@
+framework module DYSafeObject {
+  umbrella header "DYSafeObject-umbrella.h"
+
+  export *
+  module * { export * }
+}
