@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/DefaultYuan/DYSafeObject.git', :tag => s.version.to_s }
   s.social_media_url = 'https://weibo.com/u/2792951481'
 
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '7.0'
   s.requires_arc = true
-  s.source_files = 'DYSafeObject/Classes/**/*'
+  s.source_files = 'DYSafeObject/DYSafeObject/Classes/**/*'
   s.frameworks = 'UIKit'
 
   # s.resource_bundles = {
