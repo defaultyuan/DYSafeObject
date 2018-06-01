@@ -1,7 +1,7 @@
 PODS:
-  - DYSafeObject (0.1.0)
+  - DYSafeObject (0.1.1)
   - Expecta (1.0.6)
-  - Expecta+Snapshots (3.1.1):
+  - "Expecta+Snapshots (3.1.1)":
     - Expecta (~> 1.0)
     - FBSnapshotTestCase/Core (~> 2.0)
     - Specta (~> 1.0)
@@ -15,21 +15,28 @@ PODS:
 DEPENDENCIES:
   - DYSafeObject (from `../`)
   - Expecta
-  - Expecta+Snapshots
+  - "Expecta+Snapshots"
   - FBSnapshotTestCase
   - Specta
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Expecta
+    - "Expecta+Snapshots"
+    - FBSnapshotTestCase
+    - Specta
 
 EXTERNAL SOURCES:
   DYSafeObject:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DYSafeObject: bde747ec58320feea2157a578c9bea84333d9c03
+  DYSafeObject: 75ebfbc02ccb02c0131cbe1b4370aed35777f0ed
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  Expecta+Snapshots: dcff217eef506dabd6dfdc7864ea2da321fafbb8
-  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
+  "Expecta+Snapshots": dcff217eef506dabd6dfdc7864ea2da321fafbb8
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
 PODFILE CHECKSUM: 8a5a71ce925fe47f9f7271bf9679eba5d14faffe
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3

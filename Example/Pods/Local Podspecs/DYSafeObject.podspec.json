@@ -1,22 +1,24 @@
 {
   "name": "DYSafeObject",
-  "version": "0.1.0",
-  "summary": "A short description of DYSafeObject.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.1.1",
+  "summary": "防止 字典value为nil、数组越界、<null>、NSNull对象导致的Crash.",
   "homepage": "https://github.com/DefaultYuan/DYSafeObject",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "DefaultYuan": "15921462994@163.com"
+    "defaultyuan": "15921462994@163.com"
   },
   "source": {
     "git": "https://github.com/DefaultYuan/DYSafeObject.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
+  "social_media_url": "https://weibo.com/u/2792951481",
   "platforms": {
-    "ios": "8.0"
+    "ios": "7.0"
   },
-  "source_files": "DYSafeObject/Classes/**/*"
+  "requires_arc": true,
+  "source_files": "DYSafeObject/DYSafeObject/Classes/**/*",
+  "frameworks": "UIKit"
 }
