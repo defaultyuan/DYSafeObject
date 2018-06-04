@@ -7,6 +7,10 @@
 ```objc
 pod 'DYSafeObject', '~> 0.1.1'
 ```
+#### 然后安装
+```objc
+pod update
+```
 ### 以下是测试代码
 
 ### 数组 Test
