@@ -14,7 +14,7 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
+
         [objc_getClass("__NSArrayM") swizzleSEL:@selector(objectAtIndex:) withSEL:@selector(dy_objectAtIndex:)];
 
         [objc_getClass("__NSArrayM") swizzleSEL:@selector(removeObjectsInRange:) withSEL:@selector(dy_removeObjectsInRange:)];
@@ -38,98 +38,108 @@
 
 - (id)dy_objectAtIndex:(NSUInteger)index
 {
-    
-    if (index >= self.count) {
-        return nil;
+    @autoreleasepool {
+        if (index >= self.count) {
+            return nil;
+        }
+        return [self dy_objectAtIndex:index];
     }
-    return [self dy_objectAtIndex:index];
-
 }
 
 - (id)dy_objectAtIndexedSubscript:(NSUInteger)index {
-    if (index >= self.count){
-        return nil;
+    @autoreleasepool {
+        if (index >= self.count){
+            return nil;
+        }
+        return [self dy_objectAtIndexedSubscript:index];
     }
-    return [self dy_objectAtIndexedSubscript:index];
 }
 
 - (void)dy_addObject:(id)object
 {
-    if (!object) {
+    @autoreleasepool {
+        if (!object) {
 
-    } else {
-        [self dy_addObject:object];
+        } else {
+            [self dy_addObject:object];
+        }
     }
 }
 
 - (void)dy_removeObjectAtIndex:(NSInteger)index
 {
-    if (index >= self.count) {
-        return;
+    @autoreleasepool {
+        if (index >= self.count) {
+            return;
+        }
+
+        [self dy_removeObjectAtIndex:index];
     }
-
-    [self dy_removeObjectAtIndex:index];
-
 }
 
 - (void)dy_insertObject:(id)anObject atIndex:(NSUInteger)index
 {
-    if (!anObject) {
-        return;
+    @autoreleasepool {
+        if (!anObject) {
+            return;
+        }
+        [self dy_insertObject:anObject atIndex:index];
     }
-    [self dy_insertObject:anObject atIndex:index];
-
 }
 
 - (void)dy_removeObject:(id)anObject inRange:(NSRange)range {
-    if (range.location > self.count) {
-        return;
+    @autoreleasepool {
+        if (range.location > self.count) {
+            return;
+        }
+
+        if (range.length > self.count) {
+            return;
+        }
+
+        if ((range.location + range.length) > self.count) {
+            return;
+        }
+
+        if (!anObject){
+            return;
+        }
+
+
+        return [self dy_removeObject:anObject inRange:range];
     }
-
-    if (range.length > self.count) {
-        return;
-    }
-
-    if ((range.location + range.length) > self.count) {
-        return;
-    }
-
-    if (!anObject){
-        return;
-    }
-
-
-    return [self dy_removeObject:anObject inRange:range];
-
 }
 
 - (void)dy_removeObjectsInRange:(NSRange)range {
+    @autoreleasepool {
+        if (range.location > self.count) {
+            return;
+        }
 
-    if (range.location > self.count) {
-        return;
+        if (range.length > self.count) {
+            return;
+        }
+
+        if ((range.location + range.length) > self.count) {
+            return;
+        }
+
+        return [self dy_removeObjectsInRange:range];
     }
-
-    if (range.length > self.count) {
-        return;
-    }
-
-    if ((range.location + range.length) > self.count) {
-        return;
-    }
-
-    return [self dy_removeObjectsInRange:range];
 }
 
 
 - (void)dy_replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject
 {
-    if (index >= self.count) {
-        return;
+    @autoreleasepool {
+        if (index >= self.count) {
+            return;
+        }
+        if (!anObject) {
+            return;
+        }
+        [self dy_replaceObjectAtIndex:index withObject:anObject];
     }
-    if (!anObject) {
-        return;
-    }
-    [self dy_replaceObjectAtIndex:index withObject:anObject];
 }
 
 @end

@@ -18,8 +18,16 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://weibo.com/u/2792951481'
 
   s.ios.deployment_target = '7.0'
-  s.requires_arc = true
-  s.source_files = 'DYSafeObject/DYSafeObject/Classes/**/*'
+  s.source_files = 'DYSafeObject/DYSafeObject/Classes/**/*.{h,m}'
+
+  no_arc_files = ['DYSafeObject/DYSafeObject/Classes/NSMutableArray+DYSafe.h',
+                  'DYSafeObject/DYSafeObject/Classes/NSMutableArray+DYSafe.m'
+                ]
+  files = Pathname.glob("DYSafeObject/DYSafeObject/Classes/**/*.{h,m}")
+  files = files.map {|file| file.to_path}
+  files = files.reject {|file| no_arc_files.include?(file) }
+  s.requires_arc = files.sort
+
   s.frameworks = 'UIKit'
 
   # s.resource_bundles = {
